@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using aspnetcoreapp.Milddewares;
 using System.Globalization;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace aspnetcoreapp
 {
@@ -21,31 +23,36 @@ namespace aspnetcoreapp
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseRequestCulture();
-            app.UseWelcomePage();
+           // app.UseWelcomePage();
             // loggerFactory.AddConsole();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                var cultureQuery = context.Request.Query["culture"];
-                if (!string.IsNullOrWhiteSpace(cultureQuery))
-                {
-                    var culture = new CultureInfo(cultureQuery);
+            //app.Run(async (context) =>
+            //{
+            //    var cultureQuery = context.Request.Query["culture"];
+            //    if (!string.IsNullOrWhiteSpace(cultureQuery))
+            //    {
+            //        var culture = new CultureInfo(cultureQuery);
 
-                    CultureInfo.CurrentCulture = culture;
-                    CultureInfo.CurrentUICulture = culture;
+            //        CultureInfo.CurrentCulture = culture;
+            //        CultureInfo.CurrentUICulture = culture;
 
-                }
+            //    }
 
-                // Call the next delegate/middleware in the pipeline
-               // return this._next(context);
-                await context.Response.WriteAsync("Hello World!");
-            });
+            //    // Call the next delegate/middleware in the pipeline
+            //   // return this._next(context);
+            //    await context.Response.WriteAsync("Hello World!");
+            //});
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles")),
+                RequestPath = new PathString("/StaticFiles")
+            });
         }
     }
 }
