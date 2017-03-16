@@ -166,5 +166,6 @@
 -resource:"E:\TEDU\.NET Core\Sample\aspnetcoreapp\src\aspnetcoreapp\obj\Debug\netcoreapp1.0\aspnetcoreappdotnet-compile.deps.json",aspnetcoreapp.deps.json
 "E:\TEDU\.NET Core\Sample\aspnetcoreapp\src\aspnetcoreapp\Program.cs"
 "E:\TEDU\.NET Core\Sample\aspnetcoreapp\src\aspnetcoreapp\Startup.cs"
+"E:\TEDU\.NET Core\Sample\aspnetcoreapp\src\aspnetcoreapp\Controllers\ErrorController.cs"
 "E:\TEDU\.NET Core\Sample\aspnetcoreapp\src\aspnetcoreapp\Controllers\HomeController.cs"
 "E:\TEDU\.NET Core\Sample\aspnetcoreapp\src\aspnetcoreapp\Milddewares\RequestCultureMiddleware.cs"

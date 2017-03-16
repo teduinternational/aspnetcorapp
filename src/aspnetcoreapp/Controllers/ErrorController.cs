@@ -8,12 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace aspnetcoreapp.Controllers
 {
-    public class HomeController : Controller
+    public class ErrorController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
         {
-           
             return View();
         }
     }

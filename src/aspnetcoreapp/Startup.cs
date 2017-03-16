@@ -23,11 +23,16 @@ namespace aspnetcoreapp
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseRequestCulture();
-           // app.UseWelcomePage();
-            // loggerFactory.AddConsole();
+            // app.UseWelcomePage();
+            loggerFactory.AddConsole();
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
             }
 
             //app.Run(async (context) =>
