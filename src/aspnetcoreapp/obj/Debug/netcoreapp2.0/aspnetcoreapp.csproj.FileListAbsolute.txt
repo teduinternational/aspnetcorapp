@@ -1,0 +1,11 @@
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.csprojResolveAssemblyReference.cache
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.csproj.CoreCompileInputs.cache
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.AssemblyInfoInputs.cache
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.AssemblyInfo.cs
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\bin\Debug\netcoreapp2.0\aspnetcoreapp.deps.json
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\bin\Debug\netcoreapp2.0\aspnetcoreapp.runtimeconfig.json
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\bin\Debug\netcoreapp2.0\aspnetcoreapp.runtimeconfig.dev.json
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\bin\Debug\netcoreapp2.0\aspnetcoreapp.dll
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\bin\Debug\netcoreapp2.0\aspnetcoreapp.pdb
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.dll
+E:\TEDU\.NET Core\Sample\aspnetcorapp\src\aspnetcoreapp\obj\Debug\netcoreapp2.0\aspnetcoreapp.pdb
