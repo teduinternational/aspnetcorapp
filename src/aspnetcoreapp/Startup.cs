@@ -6,6 +6,10 @@ using Microsoft.Extensions.Logging;
 using aspnetcoreapp.Milddewares;
 using System.Globalization;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using aspnetcoreapp.Models;
+using aspnetcoreapp.DI.Interfaces;
+using aspnetcoreapp.DI.Implementation;
 
 namespace aspnetcoreapp
 {
@@ -32,6 +36,10 @@ namespace aspnetcoreapp
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>(options =>
+              options.UseInMemoryDatabase("CoreApp")
+            );
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddMvc();
         }
 
@@ -39,29 +47,29 @@ namespace aspnetcoreapp
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseRequestCulture();
-            app.UseWelcomePage();
+            //app.UseWelcomePage();
             // loggerFactory.AddConsole();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                var cultureQuery = context.Request.Query["culture"];
-                if (!string.IsNullOrWhiteSpace(cultureQuery))
-                {
-                    var culture = new CultureInfo(cultureQuery);
+            //app.Run(async (context) =>
+            //{
+            //    var cultureQuery = context.Request.Query["culture"];
+            //    if (!string.IsNullOrWhiteSpace(cultureQuery))
+            //    {
+            //        var culture = new CultureInfo(cultureQuery);
 
-                    CultureInfo.CurrentCulture = culture;
-                    CultureInfo.CurrentUICulture = culture;
+            //        CultureInfo.CurrentCulture = culture;
+            //        CultureInfo.CurrentUICulture = culture;
 
-                }
+            //    }
 
-                // Call the next delegate/middleware in the pipeline
-               // return this._next(context);
-                await context.Response.WriteAsync("Hello World!");
-            });
+            //    // Call the next delegate/middleware in the pipeline
+            //   // return this._next(context);
+            //    await context.Response.WriteAsync("Hello World!");
+            //});
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
         }
