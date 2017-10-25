@@ -22,10 +22,18 @@ namespace aspnetcoreapp
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
-            //if (env.IsDevelopment())
-            //{
-            //    builder.AddUserSecrets<Startup>();
-            //}
+            if (env.IsDevelopment())
+            {
+               
+            }
+            else if(env.IsStaging())
+            {
+
+            }
+            else
+            {
+                
+            }
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();

@@ -1,7 +1,15 @@
 ﻿@model List<aspnetcoreapp.Models.Customer>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 <ul>
     @foreach (var customer in Model)
     {
         <li>@customer.Name</li>
     }
 </ul>
+<environment names="Development">
+    <h1>Development</h1>
+</environment>
+<environment names="Staging,Production">
+    <h1>Production</h1>
+</environment>
