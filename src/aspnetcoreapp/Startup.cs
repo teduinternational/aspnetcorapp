@@ -15,6 +15,8 @@ namespace aspnetcoreapp
 {
     public class Startup
     {
+        public IConfigurationRoot Configuration { get; }
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -22,24 +24,10 @@ namespace aspnetcoreapp
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
-            if (env.IsDevelopment())
-            {
-               
-            }
-            else if(env.IsStaging())
-            {
-
-            }
-            else
-            {
-                
-            }
-
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -47,6 +35,8 @@ namespace aspnetcoreapp
             services.AddDbContext<ApplicationDbContext>(options =>
               options.UseInMemoryDatabase("CoreApp")
             );
+            services.Configure<MyOptions>(Configuration);
+
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddMvc();
         }
